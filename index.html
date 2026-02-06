@@ -98,6 +98,7 @@
       position: relative;
       min-width: 280px;
       perspective: 1000px;
+      vertical-align: baseline;
     }
     
     .animated-word {
@@ -105,6 +106,7 @@
       position: absolute;
       left: 0;
       right: 0;
+      top: 0;
       opacity: 0;
       transform: translateY(-30px) scale(0.8) rotate(-2deg);
       transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -123,15 +125,6 @@
       50% {
         text-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3);
       }
-    }
-    
-    .underline {
-      position: absolute;
-      bottom: 0.5rem;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(to right, #60a5fa, #2563eb);
     }
     
     .hero p {
@@ -632,7 +625,6 @@
           <span class="animated-word active" id="word1">digital</span>
           <span class="animated-word" id="word2">mit KI</span>
           <span class="animated-word" id="word3">einfach</span>
-          <span class="underline"></span>
         </span>
       </h1>
       
@@ -895,7 +887,7 @@
       
       <div class="footer-section">
         <h4>Kontakt</h4>
-        <p>E-Mail: kontakt@loift.digital</p>
+        <p>E-Mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c777372687d77685c7073757a683278757b75687d70">[email&#160;protected]</a></p>
         <p>Telefon: +49 (0) XXX XXXXXXX</p>
       </div>
       
@@ -911,7 +903,7 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Animated word switcher
     const words = ['word1', 'word2', 'word3'];
     let currentIndex = 0;
@@ -920,13 +912,4 @@
       const currentWord = document.getElementById(words[currentIndex]);
       currentWord.classList.remove('active');
       
-      currentIndex = (currentIndex + 1) % words.length;
-      
-      const nextWord = document.getElementById(words[currentIndex]);
-      nextWord.classList.add('active');
-    }
-    
-    setInterval(switchWord, 2500);
-  </script>
-</body>
-</html>
+      current
