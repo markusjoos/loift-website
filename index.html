@@ -82,40 +82,95 @@
     .hero {
       padding: 5rem 1.5rem 6rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 1400px;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(37, 99, 235, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(100, 116, 139, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L20 15 M30 20 L40 25 M50 30 L60 35 M70 40 L80 45' stroke='%232563eb' stroke-width='0.5' opacity='0.15' fill='none'/%3E%3Ccircle cx='25' cy='25' r='2' fill='%232563eb' opacity='0.2'/%3E%3Ccircle cx='75' cy='75' r='2' fill='%232563eb' opacity='0.2'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .hero .container {
+      position: relative;
+      z-index: 1;
     }
     
     .hero h1 {
-      font-family: 'Crimson Pro', serif;
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-family: 'Work Sans', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 700;
       color: #0f172a;
-      line-height: 1.2;
+      line-height: 1.3;
       margin-bottom: 2rem;
+      max-width: 56rem;
+      margin-left: auto;
+      margin-right: auto;
     }
     
-    .animated-word-container {
-      display: inline-block;
-      position: relative;
-      min-width: 280px;
-      perspective: 1000px;
-      vertical-align: baseline;
+    .brand-tagline {
+      margin-top: 2rem;
+      margin-bottom: 3rem;
     }
     
-    .animated-word {
+    .brand-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: #0f172a;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tagline-container {
+      font-family: 'Crimson Pro', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
       color: #2563eb;
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      opacity: 0;
-      transform: translateY(-30px) scale(0.8) rotate(-2deg);
-      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      min-height: 1.5em;
+      position: relative;
+      display: block;
     }
     
-    .animated-word.active {
+    .animated-tagline {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      white-space: nowrap;
+    }
+    
+    .animated-tagline.active {
       opacity: 1;
-      transform: translateY(0) scale(1) rotate(0deg);
-      animation: glow 2.5s ease-in-out;
+      transform: translateX(-50%) translateY(0);
+      animation: glow 2s ease-in-out;
     }
     
     @keyframes glow {
@@ -128,11 +183,12 @@
     }
     
     .hero p {
-      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
       color: #475569;
-      margin: 0 auto 3rem;
+      margin: 0 auto 0;
       max-width: 56rem;
       line-height: 1.7;
+      font-weight: 400;
     }
     
     .cta-buttons {
@@ -592,11 +648,6 @@
         flex-direction: column;
       }
       
-      .hero-checks {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      
       .step {
         flex-direction: column;
       }
@@ -620,17 +671,22 @@
   <section class="hero">
     <div class="container">
       <h1>
-        Das loift 
-        <span class="animated-word-container">
-          <span class="animated-word active" id="word1">digital</span>
-          <span class="animated-word" id="word2">mit KI</span>
-          <span class="animated-word" id="word3">einfach</span>
-        </span>
+        Während Ihre Konkurrenz mit KI automatisiert, verlieren Sie wertvolle Zeit mit manuellen Prozessen.
       </h1>
       
       <p>
-        Wir automatisieren Ihre Prozesse, schulen Ihre Mitarbeiter und machen Digitalisierung endlich greifbar. <strong>Ohne IT-Chinesisch.</strong> Mit messbaren Ergebnissen.
+        Wir bringen KI-Automatisierung in Ihr Unternehmen. Verständlich und greifbar. Mit messbaren Ergebnissen.
       </p>
+      
+      <div class="brand-tagline">
+        <span class="brand-text">Das loift</span>
+        <div class="tagline-container">
+          <span class="animated-tagline active" id="tag1">digital</span>
+          <span class="animated-tagline" id="tag2">mit KI</span>
+          <span class="animated-tagline" id="tag3">einfach</span>
+          <span class="animated-tagline" id="tag4">effizient</span>
+        </div>
+      </div>
       
       <div class="cta-buttons">
         <a href="#beratung" class="btn-primary">
@@ -639,17 +695,6 @@
         <a href="#vorteile" class="btn-secondary">
           Mehr erfahren
         </a>
-      </div>
-      
-      <div class="hero-checks">
-        <div class="check-item">
-          <span class="icon-check"></span>
-          <span>Keine Vorkenntnisse nötig</span>
-        </div>
-        <div class="check-item">
-          <span class="icon-check"></span>
-          <span>Inklusive Mitarbeiter-Schulung</span>
-        </div>
       </div>
     </div>
   </section>
@@ -903,13 +948,22 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Animated word switcher
-    const words = ['word1', 'word2', 'word3'];
+  <script>
+    // Animated tagline switcher
+    const tags = ['tag1', 'tag2', 'tag3', 'tag4'];
     let currentIndex = 0;
     
-    function switchWord() {
-      const currentWord = document.getElementById(words[currentIndex]);
-      currentWord.classList.remove('active');
+    function switchTag() {
+      const currentTag = document.getElementById(tags[currentIndex]);
+      currentTag.classList.remove('active');
       
-      current
+      currentIndex = (currentIndex + 1) % tags.length;
+      
+      const nextTag = document.getElementById(tags[currentIndex]);
+      nextTag.classList.add('active');
+    }
+    
+    setInterval(switchTag, 2000);
+  </script>
+</body>
+</html>
