@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anfrage erhalten - loift.digital</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Work Sans', sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    
+    .container {
+      max-width: 600px;
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .checkmark {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      animation: scaleIn 0.5s ease-out;
+    }
+    
+    .checkmark svg {
+      width: 40px;
+      height: 40px;
+      stroke: white;
+      stroke-width: 3;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: drawCheck 0.5s ease-out 0.3s forwards;
+    }
+    
+    @keyframes scaleIn {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes drawCheck {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    
+    h1 {
+      font-family: 'Crimson Pro', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    
+    .highlight {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+    
+    .highlight strong {
+      color: #2563eb;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    .btn-primary {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+    
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+    }
+    
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #2563eb;
+      text-decoration: none;
+      font-family: 'Crimson Pro', serif;
+      margin-top: 2rem;
+      display: inline-block;
+    }
+    
+    .logo .domain {
+      color: #64748b;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="checkmark">
+      <svg viewBox="0 0 52 52">
+        <polyline points="14 27 22 35 38 17"/>
+      </svg>
+    </div>
+    
+    <h1>Anfrage erhalten!</h1>
+    
+    <p>Vielen Dank für deine Nachricht. Ich habe deine Anfrage erhalten und melde mich innerhalb von 24 Stunden bei dir.</p>
+    
+    <div class="highlight">
+      <strong>📧 E-Mail-Bestätigung</strong>
+      Du erhältst in Kürze eine Bestätigungs-E-Mail von FormSubmit. Bitte bestätige deine E-Mail-Adresse dort einmalig, damit ich dir antworten kann.
+    </div>
+    
+    <p>Ich freue mich darauf, mit dir über dein Projekt zu sprechen!</p>
+    
+    <a href="/" class="btn-primary">Zurück zur Startseite</a>
+    
+    <br><br>
+    <a href="/" class="logo">
+      <span class="loift">loift</span><span class="domain">.digital</span>
+    </a>
+  </div>
+</body>
+</html>
